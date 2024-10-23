@@ -8,6 +8,11 @@ on:
         required: true
         default: '20'
         type: string 
+      test-scripts:
+        description: 'Test scripts to run'
+        required: false
+        default: 'npm test'
+        type: string
 
 jobs:
   build-and-test:
@@ -26,4 +31,4 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm test
+        run: ${{ inputs.run-tests }}
